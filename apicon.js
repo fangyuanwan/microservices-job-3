@@ -1,24 +1,24 @@
 
-const uri = 'https://jsonplaceholder.typicode.com/users';
+const url = "https://jsonplaceholder.typicode.com/users";
 let items = [];
 getitem();
 
 function getitem() {
-  fetch(uri)
-    .then(response => {response.json();
-    console.log(response.json());
-}
-    )
-    .then(data => _displayItems(data))
+  fetch(url,{method: 'GET'})
+    .then(data => {
+      return data.json();
+    })
+    .then((data) => {
+      console.log(data);
+      _displayItems(data);
+     
+    })
     .catch(error => console.error('Unable to get items.', error));
 }
 
 function _displayItems(data) {
   const tBody = document.getElementById('items');
   tBody.innerHTML = '';
-
-  _displayCount(data.length);
-
 
   data.forEach(item => {
 
