@@ -1,6 +1,8 @@
-import fetch from "node-fetch";
+
 const uri = 'https://jsonplaceholder.typicode.com/users';
 let items = [];
+getitem();
+
 function getitem() {
   fetch(uri)
     .then(response => {response.json();
